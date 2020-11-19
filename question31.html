@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<HTML>
+
+<HEAD>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <TITLE>Formオブジェクト</TITLE>
+  <META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+  <link href="question31.css" rel="stylesheet" type="text/css">
+  
+</HEAD>
+
+<BODY>
+<H1>明治村の写真</H1>
+<TABLE>
+<TR><TD>
+<IMG id="showimg" src="images/meiji01.jpg" name="BigPhoto">
+</TD><TD>
+
+<FORM name="f1">
+  写真の選択<BR>
+  <SELECT name="photo" id="sop" onchange="photoChange()">
+  <OPTION value="images/meiji01.jpg">写真を選択</OPTION>
+  <OPTION value="images/meiji01.jpg">聖ザビエル天主堂（外壁）</OPTION>
+  <OPTION value="images/meiji02.jpg">三重県庁舎</OPTION>
+  <OPTION value="images/meiji03.jpg">聖ヨハネ教会堂</OPTION>
+  <OPTION value="images/meiji04.jpg">聖ザビエル天主堂（内部）</OPTION>
+</SELECT>
+</FORM>
+</TD></TR>
+</TABLE>
+<BR>
+<BR>
+<BR>
+<INPUT type="button" value="前へ" name="back" onClick="location.href='http://localhost/question30.html'" style="cursor:pointer;" >
+<BR>
+<BR>
+<INPUT type="button" value="次へ" name="next" onClick="location.href='http://localhost/question32.html'" style="cursor:pointer;" >
+</BODY>
+<script type="text/javascript" src="question31.js"></script>
+</HTML>
