@@ -5,7 +5,7 @@ function fname(aaa){
     // console.log(ext)
 
    //match = aaa.match(/[^/]+$/);
-  filename = aaa.match(/([^/]*)\./)[1];
+  filename = aaa.match(/([^/]*)\./)[3];
   extend = aaa.match(/[^.]+$/);
 
   console.log('filename = ' + filename);      // filename
