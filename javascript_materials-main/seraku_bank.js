@@ -5,7 +5,7 @@ var goTop=document.getElementsByClassName('goTop')[0];
 window.onscroll=function(){
     let res =document.body.scrollTop || document.documentElement.scrollTop;
     //console.log(res)
-    if (res>=900){
+    if (res>=700){
         goTop.style.display = 'block';
     }else{
         goTop.style.display = 'none';
@@ -13,8 +13,12 @@ window.onscroll=function(){
 }
 
 function goTop1(){
-    document.body.scrollTop = 0
-    document.documentElement.scrollTop = 0
+   window.scrollTo({ 
+        top: 0, 
+        behavior: "smooth" 
+    });
+    //document.body.scrollTop = 0
+    //document.documentElement.scrollTop = 0
   };
 
 
@@ -76,7 +80,7 @@ for(var i=0;i<subItems.length;i++){
     })
 }
 
-//自動スライド
+//〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜自動スライド〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
 setInterval(function(){
     time++;
     if(time==20){
@@ -103,7 +107,7 @@ function SwitchMenu(obj){
     }
     }
 
-//〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜submenu〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
+//〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜submenu〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
 function ShowSub(li) {
     var subMenu = li.getElementsByTagName("ul")[0] ;
     subMenu.style.display = " block ";
@@ -113,13 +117,13 @@ function ShowSub(li) {
     subMenu.style.display = " none ";
     }
 
-//～～～～～～～～～～～～～～～～～～～tab～～～～～～～～～～～～～～～～～～～～～
+//～～～～～～～～～～～～～～～～～～～tab～～～～～～～～～〜〜〜〜〜〜〜〜〜～～～～～～～～～～～～
 var tabs=document.getElementsByClassName("tab")[0].getElementsByTagName("li");
 var hides=document.getElementsByClassName("content")[0].getElementsByTagName("li");
 
     for(var i =0;i<tabs.length;i++){
         tabs[i].index=i
-        tabs[i].onmouseover=function(){
+        tabs[i].onclick=function(){
             for(var i =0;i<tabs.length;i++){
                 tabs[i].className="";
                 hides[i].className="hide";
@@ -131,12 +135,11 @@ var hides=document.getElementsByClassName("content")[0].getElementsByTagName("li
 
 
 
-/*POPUP*/
+//〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜PopUp〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
   $(function () {
-    $('.openModal').click(function() {  //openModalをクリックした時に
+    $('.openModal').click(function() {
       var btnIndex = $(this).index(); 
-      //何番目のモーダルボタンかを取得
-      
+
       $('.modalArea').eq(btnIndex).addClass('is-open'); 
       //クリックしたモーダルボタンと同じ番目のモーダルを表示する。addClassでis-openクラスを追加して表示する
   　　　　$('html, body').css('overflow', 'hidden'); 
