@@ -5,7 +5,7 @@ var goTop=document.getElementsByClassName('goTop')[0];
 window.onscroll=function(){
     let res =document.body.scrollTop || document.documentElement.scrollTop;
     //console.log(res)
-    if (res>=700){
+    if (res>=200){
         goTop.style.display = 'block';
     }else{
         goTop.style.display = 'none';
@@ -153,3 +153,12 @@ var hides=document.getElementsByClassName("content")[0].getElementsByTagName("li
     });
   
   });
+
+
+//〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜hamburge menu〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
+const menuIcon=document.querySelector(".hamburger-menu");
+const navbar=document.querySelector(".navbar");
+
+menuIcon.addEventListener("click",()=>{
+    navbar.classList.toggle("change");
+})
