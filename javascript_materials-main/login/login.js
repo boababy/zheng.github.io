@@ -19,7 +19,7 @@ $(document).ready(function(){
                 });
                 if(error==false){
                     alert('success!');
-                    document.location="save_ss.php?user_login=" +user;
+                    //document.location="save_ss.php?user_login=" +user;
                 }else{
                     
                     //$('#container').slideUp('slow').slideDown('slow');
