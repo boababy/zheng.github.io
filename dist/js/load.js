@@ -15,12 +15,12 @@ $(document).ready(function(){
             employee_data+='</div>';
             employee_data+='</li>';
         });
-        console.log(employee_data);
+        //console.log(employee_data);
         $('#loadarea').append(employee_data);
 
     });
 });
-/*
+
 $(document).ready(function(){
   $('#sorting-name').click(function(){
       $.ajax({
@@ -40,27 +40,9 @@ $(document).ready(function(){
       });
   });
 });
-*/
-
-$(document).ready(function(){
-  $('#sorting-name').click(function(){
-      $.ajax({
-          type:"GET",
-          url:"dist/js/include.json",
-          async:true,    //是否异步
-          jsonp: "callbackparam",    //跨域请求的参数名，默认是callback
-          dataType:"json",
-          success:function(data){
-            console.log(data);
-            var Forsort=data;
-            Forsort.sort(compare(s1.lastName,s2.lastName));
-            console.log(Forsort);
-          },
-      });
-  });
-});
 
 
+/*
 function compare(a, b){
   a = katakanaToHiragana(a.toString());
   b = katakanaToHiragana(b.toString());
@@ -79,6 +61,7 @@ function katakanaToHiragana(src) {
       return String.fromCharCode(chr);
   });
 }
+*/
 
 /*
 $(document).ready(function(){
