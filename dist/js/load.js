@@ -20,7 +20,7 @@ $(document).ready(function(){
 
     });
 });
-
+/*
 $(document).ready(function(){
   $('#sorting-name').click(function(){
       $.ajax({
@@ -35,6 +35,25 @@ $(document).ready(function(){
             Forsort.sort(function compare(s1,s2){
               return s1.lastName - s2.lastName;
             });
+            console.log(Forsort);
+          },
+      });
+  });
+});
+*/
+
+$(document).ready(function(){
+  $('#sorting-name').click(function(){
+      $.ajax({
+          type:"GET",
+          url:"dist/js/include.json",
+          async:true,    //是否异步
+          jsonp: "callbackparam",    //跨域请求的参数名，默认是callback
+          dataType:"json",
+          success:function(data){
+            console.log(data);
+            var Forsort=data;
+            Forsort.sort(compare(s1.lastName,s2.lastName));
             console.log(Forsort);
           },
       });
