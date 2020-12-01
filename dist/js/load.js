@@ -37,7 +37,7 @@ $(document).ready(function(){
             console.log(resp);
             var data=resp;
             data.sort(function(s1,s2){
-              return s1.lastName > s2.lastName;
+              return s1.lastName - s2.lastName;
             });
             console.log(data);
           },
