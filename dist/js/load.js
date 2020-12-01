@@ -36,10 +36,10 @@ $(document).ready(function(){
           success:function(resp){
             console.log(resp);
             var data=resp;
-            data.data.sort(function(s1,s2){
+            data.sort(function(s1,s2){
               return s1.lastName > s2.lastName;
             });
-            console.log(data.data);
+            console.log(data);
           },
       });
   });
