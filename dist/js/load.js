@@ -25,7 +25,9 @@ $(document).ready(function(){
   $('#sorting-name').click(function(){
     $.get("dist/js/include.json","",function(data){
       var newdata=data.result
-      //根据价格（price）排序
+      
+      console.log(newdata);
+      //根据名字（name）排序
       function sortname(a,b){
         return a.lastName-b.lastName
       }
