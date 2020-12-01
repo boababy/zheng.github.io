@@ -34,7 +34,7 @@ function katakanaToHiragana(data) {
 $(document).ready(function(){
   $('#sorting-clear').click(function(){
     $.getJSON("dist/js/include.json", function (data) {
-      $('#query-division').value('')
+      $('#query-division').val('')
       render(data)
     });
   })
