@@ -55,8 +55,8 @@ $(document).ready(function () {
         //console.log(data);
         var Forsort = data;
         Forsort.sort(function (s1, s2) {
-          var a = katakanaToHiragana(s1.firstKana.toString());
-          b = katakanaToHiragana(s2.firstKana.toString());
+          var a = katakanaToHiragana(s1.lastKana.toString());
+          b = katakanaToHiragana(s2.lastKana.toString());
           if (a < b) {
             return -1
           } else if (a > b) {
