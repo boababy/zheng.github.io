@@ -21,13 +21,11 @@ $(document).ready(function(){
     });
 });
 
-
 $(document).ready(function(){
   $('#sorting-name').click(function(){
       //var user=$('#user').val();
       //var password=$('#password').val();
       //var error=true;
-
       $.ajax({
           type:"GET",
           url:"dist/js/include.json",
@@ -37,14 +35,16 @@ $(document).ready(function(){
           success:function(data){
             console.log(data);
             var Forsort=data;
-            Forsort.data.sort(function(s1,s2){
+            data.Forsort.sort(function(s1,s2){
               return s1.lastName > s2.lastName;
             });
-            console.log(Forsort.data);
+            console.log(data.Forsort);
           },
       });
   });
 });
+
+
 
 /*
 $(document).ready(function(){
