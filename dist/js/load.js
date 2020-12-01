@@ -21,27 +21,7 @@ $(document).ready(function(){
     });
 });
 
-$(document).ready(function(){
-  $('#sorting-name').click(function(){
-    $.get("dist/js/include.json","",function(data){
-      var newdata=data.result
-      
-      console.log(newdata);
-      //根据名字（name）排序
-      function sortname(a,b){
-        return a.lastName-b.lastName
-      }
-      //利用js中的sort方法
-      newdata.sort(sortname);
-      //打印排序后的数据到控制台
-      console.log(newdata);
-    })
-  });
-});
 
-
-
-/*
 $(document).ready(function(){
   $('#sorting-name').click(function(){
       //var user=$('#user').val();
@@ -53,18 +33,18 @@ $(document).ready(function(){
           async:true,    //是否异步
           jsonp: "callbackparam",    //跨域请求的参数名，默认是callback
           dataType:"json",
-          success:function(data){
-            console.log(data);
-            var Forsort=data;
-            data.Forsort.sort(function(s1,s2){
+          success:function(resp){
+            console.log(resp);
+            var data=resp;
+            data.data.sort(function(s1,s2){
               return s1.lastName > s2.lastName;
             });
-            console.log(data.Forsort);
+            console.log(data.data);
           },
       });
   });
 });
-*/
+
 
 
 /*
