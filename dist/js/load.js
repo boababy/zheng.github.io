@@ -21,6 +21,31 @@ $(document).ready(function(){
     });
 });
 
+
+$(document).ready(function(){
+  $('#sorting-name').click(function(){
+      //var user=$('#user').val();
+      //var password=$('#password').val();
+      //var error=true;
+
+      $.ajax({
+          type:"GET",
+          url:"dist/js/include.json",
+          async:true,    //是否异步
+          jsonp: "callbackparam",    //跨域请求的参数名，默认是callback
+          dataType:"json",
+          success:function(data){
+            console.log(data);
+            var Forsort=data;
+            Forsort.data.sort(function(s1,s2){
+              return s1.lastName > s2.lastName;
+            });
+            console.log(Forsort.data);
+          },
+      });
+  });
+});
+
 /*
 $(document).ready(function(){
       $.ajax({
