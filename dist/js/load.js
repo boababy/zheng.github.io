@@ -1,9 +1,6 @@
-var Forsort=""
-
 $(document).ready(function(){
     $.getJSON("dist/js/include.json",function(data){
         var employee_data="";
-        Forsort[key] = value;
         $.each(data,function(key,value){
             employee_data+='<li class="user-box col-md-2 col-sm-4 col-xs-12 text-center">';
             employee_data+='<div class="thumbnail">';
@@ -23,12 +20,6 @@ $(document).ready(function(){
 
     });
 });
-
-var　Name=document.querySelector('#sorting-name');
-Name.onclick=function(){
-  console.log(Forsort)
-}
-
 
 /*
 $(document).ready(function(){
