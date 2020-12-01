@@ -21,7 +21,47 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+  $('#sorting-name').click(function(){
+      $.ajax({
+          type:"GET",
+          url:"dist/js/include.json",
+          async:true,    //是否异步
+          jsonp: "callbackparam",    //跨域请求的参数名，默认是callback
+          dataType:"json",
+          success:function(data){
+            console.log(data);
+            var Forsort=data;
+            Forsort.sort(function compare(s1,s2){
+              return s1.lastName - s2.lastName;
+            });
+            console.log(Forsort);
+          },
+      });
+  });
+});
 
+
+function compare(a, b){
+  a = katakanaToHiragana(a.toString());
+  b = katakanaToHiragana(b.toString());
+  if(a < b){
+      return -1;
+  }else if(a > b){
+      return 1;
+  }
+  return 0;
+
+};
+
+function katakanaToHiragana(src) {
+  return src.replace(/[\u30a1-\u30f6]/g, function(match) {
+      var chr = match.charCodeAt(0) - 0x60;
+      return String.fromCharCode(chr);
+  });
+}
+
+/*
 $(document).ready(function(){
   $('#sorting-name').click(function(){
       //var user=$('#user').val();
@@ -44,6 +84,7 @@ $(document).ready(function(){
       });
   });
 });
+*/
 
 
 
