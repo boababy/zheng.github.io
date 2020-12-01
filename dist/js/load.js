@@ -1,3 +1,4 @@
+/*
 $(document).ready(function(){
     $.getJSON("include.json",function(data){
         var employee_data="";
@@ -20,6 +21,40 @@ $(document).ready(function(){
 
     });
 });
+*/
+
+
+
+
+$(document).ready(function(){
+      $.ajax({
+          type:"GET",
+          url:"include.json",
+          async:true,    //是否异步
+          jsonp: "callbackparam",    //跨域请求的参数名，默认是callback
+          dataType:"json",
+          success:function(data){
+              var employee_data="";
+              $.each(data,function(key,value){
+                employee_data+='<li class="user-box col-md-2 col-sm-4 col-xs-12 text-center">';
+                employee_data+='<div class="thumbnail">';
+                employee_data+='<div class="thumbnail-image">';
+                employee_data+='<img class="img-circle" src="'+value.imagePath+'">';
+                employee_data+='</div>';
+                employee_data+='<div class="user-indicator"></div>';
+                employee_data+='<div class="user-name">'+value.lastName+value.firstName+'</div>';
+                employee_data+='<div class="user-division">'+value.division+'</div>';
+                employee_data+='<div class="user-position">'+value.position+'</div>';
+                employee_data+='<div class="text-center"></div>';
+                employee_data+='</div>';
+                employe_data+='</li>';
+              });
+              console.log(employee_data);
+              $('#loadarea').append(employee_data);
+          },
+      });  
+});
+
 
 
 
