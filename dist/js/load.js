@@ -29,7 +29,7 @@ $(document).ready(function(){
 $(document).ready(function(){
       $.ajax({
           type:"GET",
-          url:"include.json",
+          url:"dist/js/include.json",
           async:true,    //是否异步
           jsonp: "callbackparam",    //跨域请求的参数名，默认是callback
           dataType:"json",
