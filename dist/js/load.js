@@ -1,4 +1,4 @@
-var Forsort=null
+var Forsort=""
 
 $(document).ready(function(){
     $.getJSON("dist/js/include.json",function(data){
