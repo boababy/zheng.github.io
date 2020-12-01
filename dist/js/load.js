@@ -24,7 +24,10 @@ $(document).ready(function(){
     });
 });
 
-
+var　Name=document.querySelector('#sorting-name');
+Name.onclick=function(){
+  console.log(Forsort)
+}
 
 
 /*
