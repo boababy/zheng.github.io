@@ -14,7 +14,7 @@ $(document).ready(function(){
             employee_data+='<div class="user-position">'+value.position+'</div>';
             employee_data+='<div class="text-center"></div>';
             employee_data+='</div>';
-            employe_data+='</li>';
+            employee_data+='</li>';
         });
         console.log(employee_data);
         $('#loadarea').append(employee_data);
