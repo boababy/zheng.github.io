@@ -1,6 +1,6 @@
-/*
+
 $(document).ready(function(){
-    $.getJSON("include.json",function(data){
+    $.getJSON("dist/js/include.json",function(data){
         var employee_data="";
         $.each(data,function(key,value){
             employee_data+='<li class="user-box col-md-2 col-sm-4 col-xs-12 text-center">';
@@ -21,11 +21,11 @@ $(document).ready(function(){
 
     });
 });
-*/
 
 
 
 
+/*
 $(document).ready(function(){
       $.ajax({
           type:"GET",
@@ -54,7 +54,7 @@ $(document).ready(function(){
           },
       });  
 });
-
+*/
 
 
 
