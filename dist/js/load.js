@@ -21,7 +21,6 @@ function render(data) {
     employee_data += '</div>';
     employee_data += '</li>';
   });
-  console.log(data);
   $('#loadarea').html(employee_data);
 }
 //转换
@@ -31,6 +30,18 @@ function katakanaToHiragana(data) {
     return String.fromCharCode(chr);
   });
 }
+//还原
+$(document).ready(function(){
+  $('#sorting-clear').click(function(){
+    $.getJSON("dist/js/include.json", function (data) {
+      $('#query-division').value('')
+      render(data)
+    });
+  })
+})
+
+
+
 //点击名字
 $(document).ready(function () {
   $('#sorting-name').click(function () {
@@ -53,7 +64,7 @@ $(document).ready(function () {
           }
           return 0
         });
-        console.log(Forsort);
+        $('#query-division').val('')
         render(Forsort)
       },
     });
@@ -74,6 +85,7 @@ $(document).ready(function () {
         function sortUpDate(a, b) {
           return Date.parse(b.hireday) - Date.parse(a.hireday);
         }
+        $('#query-division').val('')
         render(Forsort)
       },
     });
@@ -95,6 +107,7 @@ $(document).ready(function () {
         function sortUpDate(a, b) {
           return Date.parse(b.birthday) - Date.parse(a.birthday);
         }
+        $('#query-division').val('')
         render(Forsort)
       },
     });
@@ -107,21 +120,21 @@ $(document).ready(function () {
     var p1 = $(this).children('option:selected').val();//这就是selected的值  
     if (p1 == 'ITI') {
       $.getJSON("dist/js/include.json", function (data) {
-          var arr = $.grep(data, function (n, i) {
+          var arr = $.grep(data, function (n) {
             return n.division == 'ITI'
           });
           render(arr)
       });
     } else if (p1 == 'SMT') {
       $.getJSON("dist/js/include.json", function (data) {
-        var arr = $.grep(data, function (n, i) {
+        var arr = $.grep(data, function (n) {
           return n.division == 'SMT'
         });
         render(arr)
     });
     } else if (p1 == 'WEB') {
       $.getJSON("dist/js/include.json", function (data) {
-        var arr = $.grep(data, function (n, i) {
+        var arr = $.grep(data, function (n) {
           return n.division == 'WEB'
         });
         render(arr)
