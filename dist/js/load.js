@@ -23,6 +23,25 @@ $(document).ready(function(){
 
 $(document).ready(function(){
   $('#sorting-name').click(function(){
+    $.get("dist/js/include.json","",function(data){
+      var newdata=data.result
+      //根据价格（price）排序
+      function sortname(a,b){
+        return a.lastName-b.lastName
+      }
+      //利用js中的sort方法
+      newdata.sort(sortname);
+      //打印排序后的数据到控制台
+      console.log(newdata);
+    })
+  });
+});
+
+
+
+/*
+$(document).ready(function(){
+  $('#sorting-name').click(function(){
       //var user=$('#user').val();
       //var password=$('#password').val();
       //var error=true;
@@ -43,7 +62,7 @@ $(document).ready(function(){
       });
   });
 });
-
+*/
 
 
 /*
