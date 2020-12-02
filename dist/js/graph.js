@@ -170,13 +170,13 @@ $(document).ready(function(){
 $(document).ready(function(){
     $.getJSON("dist/js/include.json", function (data) {
         
-       for(var i=0;i<data.length;i++){
+        for(var i=0;i<data.length;i++){
             var birth=data[i].birthday;
-            var birthToNum=jsGetAge(birth[i]);
+            var birthToNum=jsGetAge(birth);
             console.log(birth);
             console.log(birthToNum);
         }
-
+        
 
 
         var nendaiData={
@@ -225,7 +225,7 @@ $(document).ready(function(){
 
 
 
-var watasi=jsGetAge("1999-09-09");
+var watasi=jsGetAge("1999/09/09");
 var cha2 = watasi -  19; 
 var num='';
 if(cha2>=1 && cha2 <=10 ){
