@@ -4,13 +4,12 @@ $(document).ready(function(){
         var male = $.grep(data, function (n, i) {
             return n.gender == '男'
         });
-        console.log(male.length)
+        //console.log(male.length)
 
         var female= $.grep(data, function (n, i) {
             return n.gender == '女'
         });
-
-        console.log(female.length)
+        //console.log(female.length)
 
         var danjyoData={
             datasets: [{
@@ -48,19 +47,17 @@ $(document).ready(function(){
         var syusa = $.grep(data, function (n, i) {
             return n.position == '主査'
         });
-        console.log(syusa.length)
+        //console.log(syusa.length)
 
         var katyou= $.grep(data, function (n, i) {
             return n.position == '課長'
         });
-
-        console.log(katyou.length)
+        //console.log(katyou.length)
 
         var dairi= $.grep(data, function (n, i) {
             return n.position == '課長代理'
         });
-
-        console.log(dairi.length)
+        //console.log(dairi.length)
 
         var danjyoData={
             datasets: [{
@@ -99,35 +96,31 @@ $(document).ready(function(){
         var y11 = $.grep(data, function (n, i) {
             return n.hireday == '2011-04-01'
         });
-        console.log(y11.length)
+        //console.log(y11.length)
 
         var y12= $.grep(data, function (n, i) {
             return n.hireday == '2012-04-01'
         });
-
-        console.log(y12.length)
+        //console.log(y12.length)
 
         var y15= $.grep(data, function (n, i) {
             return n.hireday == '2015-04-01'
         });
-
-        console.log(y15.length)
+        //console.log(y15.length)
 
         var y16= $.grep(data, function (n, i) {
             return n.hireday == '2016-04-01'
         });
-
-        console.log(y16.length)
+        //console.log(y16.length)
 
         var y18= $.grep(data, function (n, i) {
             return n.hireday == '2018-04-01'
         });
-
-        console.log(y18.length)
-
+        //console.log(y18.length)
 
         var hiredayData={
             datasets: [{
+                label: '入社数の推移',
                 borderColor: "rgba(255,0,0,1)",
                 backgroundColor: "rgba(0,0,0,0)",
 
@@ -171,3 +164,138 @@ $(document).ready(function(){
         });
     });
 });
+
+
+//年代別
+$(document).ready(function(){
+    $.getJSON("dist/js/include.json", function (data) {
+        
+        for(var i=0;i<data.length;i++){
+            var birth=jsGetAge(data[i].birthday);
+            console.log(birth);
+        }
+        
+
+
+
+
+
+
+
+        var nendaiData={
+            datasets: [{
+                backgroundColor: [
+                    "#FAFF67",
+                    "#58A27C",
+                    "#3C00FF"
+                ],
+                data: [syusa.length,katyou.length,dairi.length]
+            }],
+            // これらのラベルは凡例とツールチップに表示されます。
+            labels: [
+                '主査',
+                '課長',
+                '課長代理'
+            ]
+        };
+       // グラフを作成
+       var ctx2 = document.getElementById("stage2");
+       var PieChart2 = new Chart(ctx2, {
+           type: 'bar', 
+           data: nendaiData,
+           options: {
+            title: {
+              display: true,
+              text: '年代別'
+            }
+          }
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var watasi=jsGetAge("1999-09-09");
+var cha2 = watasi -  19; 
+var num='';
+if(cha2>=1 && cha2 <=10 ){
+    num='20';
+}
+console.log(num); 
+
+
+
+
+
+
+
+
+
+
+
+
+//計算年龄
+function jsGetAge(strBirthday){       
+    var returnAge;
+    var strBirthdayArr=strBirthday.split("-");
+    var birthYear = strBirthdayArr[0];
+    var birthMonth = strBirthdayArr[1];
+    var birthDay = strBirthdayArr[2];
+    
+    d = new Date();
+    var nowYear = d.getFullYear();
+    var nowMonth = d.getMonth() + 1;
+    var nowDay = d.getDate();
+    
+    if(nowYear == birthYear){
+        returnAge = 0;//同年 则为0岁
+    }
+    else{
+        var ageDiff = nowYear - birthYear ; //年之差
+        if(ageDiff > 0){
+            if(nowMonth == birthMonth) {
+                var dayDiff = nowDay - birthDay;//日之差
+                if(dayDiff < 0)
+                {
+                    returnAge = ageDiff - 1;
+                }
+                else
+                {
+                    returnAge = ageDiff ;
+                }
+            }
+            else
+            {
+                var monthDiff = nowMonth - birthMonth;//月之差
+                if(monthDiff < 0)
+                {
+                    returnAge = ageDiff - 1;
+                }
+                else
+                {
+                    returnAge = ageDiff ;
+                }
+            }
+        }
+        else
+        {
+            returnAge = -1;//返回-1 表示出生日期输入错误 晚于今天
+        }
+    }
+    
+    return returnAge;//返回周岁年龄
+    
+}
