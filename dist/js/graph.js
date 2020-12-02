@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    $.getJSON("dist/js/include.json",function(data){
-        console.log(data);
+    $.getJSON("dist/js/include.json",function(results){
+        console.log(results);
 
         //男女のデータをdanjyoに格納
         var danjyo=[];
