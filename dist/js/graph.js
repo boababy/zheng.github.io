@@ -155,9 +155,18 @@ $(document).ready(function(){
            data: hiredayData,
            options: {
             title: {
-              display: true,
-              text: '入社数の推移'
-            }
+                display: true,
+                text: '入社数の推移'
+              },
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    suggestedMax: 14,
+                    suggestedMin: 0,
+                    stepSize: 2,
+                  }
+                }]
+              },
           }
         });
     });
