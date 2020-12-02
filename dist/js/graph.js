@@ -74,14 +74,28 @@ $(document).ready(function(){
         //男女数量
         //  male.length  female.length
 
+        var danjyoData={
+            datasets: [{
+                data: [male.length,female.length]
+            }],
+            // これらのラベルは凡例とツールチップに表示されます。
+            labels: [
+                'Red',
+                'Blue'
+            ]
+        };
+
        // グラフを作成
        var ctx = document.getElementById("stage");
        var PieChart = new Chart(ctx, {
            type: 'pie', 
-           data: tempData,
+           data: danjyoData,
            options: {
-               maintainAspectRatio: true,
-           }
+            title: {
+              display: true,
+              text: '男女割合'
+            }
+          }
         });
 
     });
