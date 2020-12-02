@@ -9,7 +9,21 @@ $(document).ready(function(){
             danjyo.push(results[sex].gender);
         }
         console.log(danjyo);
+
+        var female=[];
+        var male=[];
+
+        if(danjyo.value=="女"){
+            female=danjyo.length
+        }
+        console.log(female);
+
+        if(danjyo.value=="男"){
+            male=danjyo.length
+        }
+        console.log(male);
         
+
         //円グラフを作成
         var ctx = document.getElementById('stage').getContext('2d');
         var chart = new Chart(ctx, {
@@ -17,12 +31,12 @@ $(document).ready(function(){
  
         // データを指定
         data: {
-         labels:"",
+         labels:["女","男"],
          datasets: [{
              label: '男女比',
-             borderColor: 'rgb(75, 192, 192)',
+             borderColor:['rgb(75, 192, 192)','rgb(255, 99, 132)'],
              fill: false,
-             data: danjyo,
+             data: female,male,
          }]
         },
  
