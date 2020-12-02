@@ -1044,8 +1044,8 @@ select#query-division {
     color: #555;
 }
 .chart-container {
-    width: 300px !important;
-    height: 234px;
+    width: 300px;
+    height: 300px;
     margin: 0px auto;
 }
 .col-md-12 .chart-container {
