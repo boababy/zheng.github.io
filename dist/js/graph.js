@@ -170,80 +170,57 @@ $(document).ready(function(){
 $(document).ready(function(){
     $.getJSON("dist/js/include.json", function (data) {
         
-        var birthToNum="";
-        var num2='';
-        var num3='';
-        var num4='';
-        var num5='';
+        var two = [];
+        var three = [];
+        var four = [];
+        var fi = [];
+
 
         for(var i=0;i<data.length;i++){
             var birth=data[i].birthday;
             var birthToNum=jsGetAge(birth);
-            console.log(birth);
-            console.log(birthToNum);
-
-            var cha2 = birthToNum -  19; 
-            if(cha2>=1 && cha2 <=10 ){
-            num2='20';
+            var str = birthToNum.toString().substring(0,1);
+            switch(str){
+             case '2' : two.push(birthToNum);break;
+             case '3' : three.push(birthToNum);break;
+             case '4' : four.push(birthToNum);break;
+             case '5' : fi.push(birthToNum);break;
             }
-
-            var cha3 = birthToNum -  29; 
-            //var num3='';
-            if(cha3>=1 && cha3 <=10 ){
-                num3='30';
-            }
-            //console.log(num3);
-
-            var cha4 = birthToNum -  39; 
-            //var num4='';
-            if(cha4>=1 && cha4 <=10 ){
-                num4='40';
-            }
-            //console.log(num4);
-
-            var cha5 = birthToNum -  49; 
-            //var num5='';
-            if(cha5>=1 && cha5 <=10 ){
-                num5='50';
-            }
-            //console.log(num5);
         }
 
-        console.log(num2);
-        console.log(num2.length);
-        console.log(num3);
-        console.log(num3.length);
-        console.log(num4);
-        console.log(num4.length);
-        console.log(num5);
+        console.log(two.length);
+        console.log(three.length);
+        console.log(four.length);
+        console.log(fi.length);
 
-        var nendaiData={
-            datasets: [{
-                backgroundColor: [
-                    "#FAFF67",
-                    "#58A27C",
-                    "#3C00FF"
-                ],
-                data: [syusa.length,katyou.length,dairi.length]
-            }],
-            // これらのラベルは凡例とツールチップに表示されます。
-            labels: [
-                '主査',
-                '課長',
-                '課長代理'
-            ]
-        };
        // グラフを作成
-       var ctx2 = document.getElementById("stage2");
-       var PieChart2 = new Chart(ctx2, {
-           type: 'bar', 
-           data: nendaiData,
-           options: {
-            title: {
-              display: true,
-              text: '年代別'
-            }
-          }
+       var ctx3 = document.getElementById("stage3");
+       var PieChart3 = new Chart(ctx3, {
+        type: 'bar',
+        data: {
+          labels: ['20代', '30代', '40代', '50代'],
+          datasets: [
+            {
+              label: '年代別',
+              data: [two.length,three.length,four.length,fi.length],
+              backgroundColor: "rgba(219,39,91,0.5)"
+            }]
+            },
+            options: {
+                title: {
+                display: true,
+                text: '年代別'
+                },
+                scales: {
+                yAxes: [{
+                ticks: {
+                suggestedMax: 10,
+                suggestedMin: 0,
+                stepSize: 1,
+                }
+                }]
+            },
+        }
         });
     });
 });
