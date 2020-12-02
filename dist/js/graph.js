@@ -170,15 +170,12 @@ $(document).ready(function(){
 $(document).ready(function(){
     $.getJSON("dist/js/include.json", function (data) {
         
-        for(var i=0;i<data.length;i++){
+       for(var i=0;i<data.length;i++){
             var birth=data[i].birthday;
+            var birthToNum=jsGetAge(birth[i]);
             console.log(birth);
+            console.log(birthToNum);
         }
-        
-
-
-
-
 
 
 
