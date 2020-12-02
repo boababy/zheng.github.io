@@ -1,3 +1,5 @@
+
+/*
 $(document).ready(function(){
     $.getJSON("dist/js/include.json",function(results){
         console.log(results);
@@ -48,6 +50,38 @@ $(document).ready(function(){
          text: '線グラフの例'
             }   
         }
+        });
+
+    });
+});
+*/
+
+
+
+$(document).ready(function(){
+    $.getJSON("dist/js/include.json", function (data) {
+        var male = $.grep(data, function (n, i) {
+            return n.gender == '男'
+        });
+        console.log(male.length)
+
+        var female= $.grep(data, function (n, i) {
+            return n.gender == '女'
+        });
+
+        console.log(female.length)
+
+        //男女数量
+        //  male.length  female.length
+
+       // グラフを作成
+       var ctx = document.getElementById("stage");
+       var PieChart = new Chart(ctx, {
+           type: 'pie', 
+           data: tempData,
+           options: {
+               maintainAspectRatio: true,
+           }
         });
 
     });
