@@ -171,6 +171,11 @@ $(document).ready(function(){
     $.getJSON("dist/js/include.json", function (data) {
         
         var birthToNum="";
+        var num2='';
+        var num3='';
+        var num4='';
+        var num5='';
+
         for(var i=0;i<data.length;i++){
             var birth=data[i].birthday;
             var birthToNum=jsGetAge(birth);
@@ -178,33 +183,36 @@ $(document).ready(function(){
             console.log(birthToNum);
 
             var cha2 = birthToNum -  19; 
-            var num2='';
             if(cha2>=1 && cha2 <=10 ){
             num2='20';
             }
-            console.log(num2);
 
             var cha3 = birthToNum -  29; 
-            var num3='';
+            //var num3='';
             if(cha3>=1 && cha3 <=10 ){
                 num3='30';
             }
-            console.log(num3);
+            //console.log(num3);
 
-            var cha4 = birthToNum -  49; 
-            var num4='';
+            var cha4 = birthToNum -  39; 
+            //var num4='';
             if(cha4>=1 && cha4 <=10 ){
                 num4='40';
             }
-            console.log(num4);
+            //console.log(num4);
 
-            var cha5 = birthToNum -  59; 
-            var num5='';
+            var cha5 = birthToNum -  49; 
+            //var num5='';
             if(cha5>=1 && cha5 <=10 ){
                 num5='50';
             }
-            console.log(num5);
+            //console.log(num5);
         }
+
+        console.log(num2);
+        console.log(num3);
+        console.log(num4);
+        console.log(num5);
 
         var nendaiData={
             datasets: [{
