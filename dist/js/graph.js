@@ -247,7 +247,7 @@ console.log(num);
 //計算年龄
 function jsGetAge(strBirthday){       
     var returnAge;
-    var strBirthdayArr=strBirthday.split("-");
+    var strBirthdayArr=strBirthday.split("/");
     var birthYear = strBirthdayArr[0];
     var birthMonth = strBirthdayArr[1];
     var birthDay = strBirthdayArr[2];
