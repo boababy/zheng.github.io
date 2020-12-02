@@ -210,8 +210,11 @@ $(document).ready(function(){
         }
 
         console.log(num2);
+        console.log(num2.length);
         console.log(num3);
+        console.log(num3.length);
         console.log(num4);
+        console.log(num4.length);
         console.log(num5);
 
         var nendaiData={
