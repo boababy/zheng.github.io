@@ -171,7 +171,7 @@ $(document).ready(function(){
     $.getJSON("dist/js/include.json", function (data) {
         
         for(var i=0;i<data.length;i++){
-            var birth=jsGetAge("data[i].birthday");
+            var birth=data[i].birthday;
             console.log(birth);
         }
         
