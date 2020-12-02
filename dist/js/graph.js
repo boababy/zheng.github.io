@@ -201,7 +201,7 @@ $(document).ready(function(){
           labels: ['20代', '30代', '40代', '50代'],
           datasets: [
             {
-              label: '年代別',
+              
               data: [two.length,three.length,four.length,fi.length],
               backgroundColor: "rgba(219,39,91,0.5)"
             }]
@@ -224,39 +224,6 @@ $(document).ready(function(){
         });
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var watasi=jsGetAge("1999/09/09");
-var cha2 = watasi -  19; 
-var num='';
-if(cha2>=1 && cha2 <=10 ){
-    num='20';
-}
-console.log(num); 
-
-
-
-
-
-
-
-
-
-
 
 
 //計算年龄
