@@ -1,3 +1,4 @@
+//男女比
 $(document).ready(function(){
     $.getJSON("dist/js/include.json", function (data) {
         var male = $.grep(data, function (n, i) {
@@ -61,7 +62,6 @@ $(document).ready(function(){
 
         console.log(dairi.length)
 
-
         var danjyoData={
             datasets: [{
                 backgroundColor: [
@@ -87,6 +87,76 @@ $(document).ready(function(){
             title: {
               display: true,
               text: '役職者比'
+            }
+          }
+        });
+    });
+});
+
+//入社数の推移
+$(document).ready(function(){
+    $.getJSON("dist/js/include.json", function (data) {
+        var y11 = $.grep(data, function (n, i) {
+            return n.hireday == '2011-04-01'
+        });
+        console.log(y11.length)
+
+        var y12= $.grep(data, function (n, i) {
+            return n.hireday == '2012-04-01'
+        });
+
+        console.log(y12.length)
+
+        var y15= $.grep(data, function (n, i) {
+            return n.hireday == '2015-04-01'
+        });
+
+        console.log(y15.length)
+
+        var y16= $.grep(data, function (n, i) {
+            return n.hireday == '2016-04-01'
+        });
+
+        console.log(y16.length)
+
+        var y18= $.grep(data, function (n, i) {
+            return n.hireday == '2018-04-01'
+        });
+
+        console.log(y18.length)
+
+
+        var hiredayData={
+            datasets: [{
+                borderColor: "rgba(255,0,0,1)",
+                backgroundColor: "rgba(0,0,0,0)",
+
+                data: [
+                    y11.length,
+                    y12.length,
+                    y15.length,
+                    y16.length,
+                    y18.length]
+                }],
+            // これらのラベルは凡例とツールチップに表示されます。
+                labels: [
+                '2011-04-01',
+                '2012-04-01',
+                '2015-04-01',
+                '2016-04-01',
+                '2018-04-01'
+                ]
+            };
+
+       // グラフを作成
+       var ctx5 = document.getElementById("stage5");
+       var lineChart = new Chart(ctx5, {
+           type: 'line', 
+           data: hiredayData,
+           options: {
+            title: {
+              display: true,
+              text: '入社数の推移'
             }
           }
         });
