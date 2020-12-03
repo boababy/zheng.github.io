@@ -174,7 +174,6 @@ $(document).ready(function(){
         var four = [];
         var fi = [];
 
-
         for(var i=0;i<data.length;i++){
             var birth=data[i].birthday;
             var birthToNum=jsGetAge(birth);
@@ -186,11 +185,6 @@ $(document).ready(function(){
              case '5' : fi.push(birthToNum);break;
             }
         }
-
-        console.log(two.length);
-        console.log(three.length);
-        console.log(four.length);
-        console.log(fi.length);
 
        // グラフを作成
        var ctx3 = document.getElementById("stage3");
@@ -228,10 +222,10 @@ $(document).ready(function(){
 $(document).ready(function(){
     $.getJSON("dist/js/include.json", function (data) {
 
-            var two = [];
-            var three = [];
-            var four = [];
-            var fi = [];
+        var two_i = [];
+        var three_i = [];
+        var four_i = [];
+        var fi_i = [];
 
         if($.grep(data, data.division == 'ITI')){
 
@@ -240,21 +234,94 @@ $(document).ready(function(){
                 var birthToNum=jsGetAge(birth);
                 var str = birthToNum.toString().substring(0,1);
                 switch(str){
-                case '2' : two.push(birthToNum);break;
-                case '3' : three.push(birthToNum);break;
-                case '4' : four.push(birthToNum);break;
-                case '5' : fi.push(birthToNum);break;
+                case '2' : two_i.push(birthToNum);break;
+                case '3' : three_i.push(birthToNum);break;
+                case '4' : four_i.push(birthToNum);break;
+                case '5' : fi_i.push(birthToNum);break;
                 }
             }
         }
-            console.log(two.length);
-            console.log(three.length);
-            console.log(four.length);
-            console.log(fi.length);
+        console.log(two_i.length);
+        console.log(three_i.length);
+        console.log(four_i.length);
+        console.log(fi_i.length);
+        
+
+        var two_s = [];
+        var three_s = [];
+        var four_s = [];
+        var fi_s = [];
+    
+        if($.grep(data, data.division == 'SMT')){
+    
+            for(var i=0;i<data.length;i++){
+                var birth=data[i].birthday;
+                var birthToNum=jsGetAge(birth);
+                var str = birthToNum.toString().substring(0,1);
+                switch(str){
+                    case '2' : two_s.push(birthToNum);break;
+                    case '3' : three_s.push(birthToNum);break;
+                    case '4' : four_s.push(birthToNum);break;
+                    case '5' : fi_s.push(birthToNum);break;
+                }
+            }
+        }
+            console.log(two_s.length);
+            console.log(three_s.length);
+            console.log(four_s.length);
+            console.log(fi_s.length);
+        
+        var two_s = [];
+        var three_s = [];
+        var four_s = [];
+        var fi_s = [];
+    
+        if($.grep(data, data.division == 'SMT')){
+    
+            for(var i=0;i<data.length;i++){
+                var birth=data[i].birthday;
+                var birthToNum=jsGetAge(birth);
+                var str = birthToNum.toString().substring(0,1);
+                switch(str){
+                    case '2' : two_s.push(birthToNum);break;
+                    case '3' : three_s.push(birthToNum);break;
+                    case '4' : four_s.push(birthToNum);break;
+                    case '5' : fi_s.push(birthToNum);break;
+                }
+            }
+        }
+            console.log(two_s.length);
+            console.log(three_s.length);
+            console.log(four_s.length);
+            console.log(fi_s.length);
+
+        var two_w = [];
+        var three_w = [];
+        var four_w = [];
+        var fi_w = [];
+        
+        if($.grep(data, data.division == 'WEB')){
+        
+            for(var i=0;i<data.length;i++){
+                var birth=data[i].birthday;
+                var birthToNum=jsGetAge(birth);
+                var str = birthToNum.toString().substring(0,1);
+                switch(str){
+                    case '2' : two_w.push(birthToNum);break;
+                    case '3' : three_w.push(birthToNum);break;
+                    case '4' : four_w.push(birthToNum);break;
+                    case '5' : fi_w.push(birthToNum);break;
+                }
+            }
+        }
+                console.log(two_w.length);
+                console.log(three_w.length);
+                console.log(four_w.length);
+                console.log(fi_w.length);
             
             
 
-            
+
     });
 });
 
