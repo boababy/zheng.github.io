@@ -227,10 +227,12 @@ $(document).ready(function(){
         var four_i = [];
         var fi_i = [];
 
-        if($.grep(data, data.division == 'ITI')){
+        var arr_i=[];
 
-            for(var i=0;i<data.length;i++){
-                var birth=data[i].birthday;
+        if(arr_i=$.grep(data, data.division == 'ITI')){
+
+            for(var i=0;i<arr_i.length;i++){
+                var birth=arr_i[i].birthday;
                 var birthToNum=jsGetAge(birth);
                 var str = birthToNum.toString().substring(0,1);
                 switch(str){
