@@ -228,7 +228,7 @@ $(document).ready(function(){
         var fi_i = [];
 
         var arr_i=[];
-        
+
         if(arr_i=$.grep(data,function (n, i) {n.division == 'ITI'})){
 
             for(var i=0;i<arr_i.length;i++){
@@ -243,6 +243,7 @@ $(document).ready(function(){
                 }
             }
         }
+        console.log(arr_i.length);
         console.log(two_i.length);
         console.log(three_i.length);
         console.log(four_i.length);
@@ -253,10 +254,12 @@ $(document).ready(function(){
         var three_s = [];
         var four_s = [];
         var fi_s = [];
+
+        var arr_s=[];
     
-        if($.grep(data, data.division == 'SMT')){
+        if(arr_s=$.grep(data,function (n, i) {n.division == 'SMT'})){
     
-            for(var i=0;i<data.length;i++){
+            for(var i=0;i<arr_s.length;i++){
                 var birth=data[i].birthday;
                 var birthToNum=jsGetAge(birth);
                 var str = birthToNum.toString().substring(0,1);
