@@ -281,7 +281,7 @@ $(document).ready(function(){
             }
         });
 
-
+        /*
         console.log(two_i.length);
         console.log(three_i.length);
         console.log(four_i.length);
@@ -298,9 +298,45 @@ $(document).ready(function(){
         console.log(three_w.length);
         console.log(four_w.length);
         console.log(fi_w.length);
-            
-        
+        */
 
+       var ctx4 = document.getElementById("stage4");
+       var barChart = new Chart(ctx4, {
+         type: 'bar',
+         data: {
+           labels: ['20代', '30代', '40代', '50代'],
+           datasets: [
+             {
+               label: 'ITI',
+               data: [two_i.length, three_i.length, four_i.length,fi_i.length],
+               backgroundColor: "rgba(219,39,91,0.5)"
+             },{
+               label: 'SMT',
+               data:[two_s.length, three_s.length, four_s.length,fi_s.length],
+               backgroundColor: "rgba(130,201,169,0.5)"
+             },{
+               label: 'WEB',
+               data:[two_w.length, three_w.length, four_w.length,fi_w.length],
+               backgroundColor: "rgba(255,183,76,0.5)"
+             }
+           ]
+         },
+         options: {
+           title: {
+             display: true,
+             text: '部署ごとの年代別'
+           },
+           scales: {
+             yAxes: [{
+               ticks: {
+                 suggestedMax: 6,
+                 suggestedMin: 0,
+                 stepSize: 1,
+               }
+             }]
+           },
+         }
+       });
 
     });
 });
