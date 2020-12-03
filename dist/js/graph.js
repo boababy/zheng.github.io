@@ -228,11 +228,14 @@ $(document).ready(function(){
         var fi_i = [];
 
         $.each(data,function(k,v){
+            console.log(v);
+
             if(v.division == 'ITI'){
                 //这里进行年龄判断操作
-                for(var i=0;i<k.length;i++){
-                    var birth=k[i].birthday;
+
+                    var birth=v.birthday;
                     var birthToNum=jsGetAge(birth);
+
                     var str = birthToNum.toString().substring(0,1);
                     switch(str){
                     case '2' : two_i.push(birthToNum);break;
@@ -240,7 +243,6 @@ $(document).ready(function(){
                     case '4' : four_i.push(birthToNum);break;
                     case '5' : fi_i.push(birthToNum);break;
                     }
-                }
             }
         });
 
