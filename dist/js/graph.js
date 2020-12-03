@@ -227,37 +227,36 @@ $(document).ready(function(){
         var four_i = [];
         var fi_i = [];
 
-        var arr_i=[];
-
-        if(arr_i=$.grep(data,function (n, i) {n.division == 'ITI'})){
-
-            for(var i=0;i<arr_i.length;i++){
-                var birth=arr_i[i].birthday;
-                var birthToNum=jsGetAge(birth);
-                var str = birthToNum.toString().substring(0,1);
-                switch(str){
-                case '2' : two_i.push(birthToNum);break;
-                case '3' : three_i.push(birthToNum);break;
-                case '4' : four_i.push(birthToNum);break;
-                case '5' : fi_i.push(birthToNum);break;
+        $.each(data,function(k,v){
+            if(v.division == 'ITI'){
+                //这里进行年龄判断操作
+                for(var i=0;i<arr_i.length;i++){
+                    var birth=arr_i[i].birthday;
+                    var birthToNum=jsGetAge(birth);
+                    var str = birthToNum.toString().substring(0,1);
+                    switch(str){
+                    case '2' : two_i.push(birthToNum);break;
+                    case '3' : three_i.push(birthToNum);break;
+                    case '4' : four_i.push(birthToNum);break;
+                    case '5' : fi_i.push(birthToNum);break;
+                    }
                 }
             }
-        }
-        console.log(arr_i.length);
+        });
+
         console.log(two_i.length);
         console.log(three_i.length);
         console.log(four_i.length);
         console.log(fi_i.length);
         
-
+        /*
         var two_s = [];
         var three_s = [];
         var four_s = [];
         var fi_s = [];
 
-        var arr_s=[];
-    
-        if(arr_s=$.grep(data,function (n, i) {n.division == 'SMT'})){
+
+        if(data.division == 'SMT'){
     
             for(var i=0;i<arr_s.length;i++){
                 var birth=data[i].birthday;
@@ -324,7 +323,7 @@ $(document).ready(function(){
                 console.log(four_w.length);
                 console.log(fi_w.length);
             
-            
+        */
 
 
     });
