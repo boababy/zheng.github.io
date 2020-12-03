@@ -207,7 +207,7 @@ $(document).ready(function(){
                 scales: {
                 yAxes: [{
                 ticks: {
-                suggestedMax: 10,
+                suggestedMax: 8,
                 suggestedMin: 0,
                 stepSize: 1,
                 }
