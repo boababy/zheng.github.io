@@ -228,8 +228,8 @@ $(document).ready(function(){
         var fi_i = [];
 
         var arr_i=[];
-
-        if(arr_i=$.grep(data, data.division == 'ITI')){
+        
+        if(arr_i=$.grep(data,function (n, i) {n.division == 'ITI'})){
 
             for(var i=0;i<arr_i.length;i++){
                 var birth=arr_i[i].birthday;
