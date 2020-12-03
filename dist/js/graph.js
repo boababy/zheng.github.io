@@ -227,12 +227,21 @@ $(document).ready(function(){
         var four_i = [];
         var fi_i = [];
 
+        var two_s = [];
+        var three_s = [];
+        var four_s = [];
+        var fi_s = [];
+
+        var two_w = [];
+        var three_w = [];
+        var four_w = [];
+        var fi_w = [];
+
         $.each(data,function(k,v){
-            console.log(v);
+            //console.log(v);
 
             if(v.division == 'ITI'){
                 //这里进行年龄判断操作
-
                     var birth=v.birthday;
                     var birthToNum=jsGetAge(birth);
 
@@ -244,88 +253,53 @@ $(document).ready(function(){
                     case '5' : fi_i.push(birthToNum);break;
                     }
             }
+            if(v.division == 'SMT'){
+                //这里进行年龄判断操作
+                    var birth=v.birthday;
+                    var birthToNum=jsGetAge(birth);
+
+                    var str = birthToNum.toString().substring(0,1);
+                    switch(str){
+                    case '2' : two_s.push(birthToNum);break;
+                    case '3' : three_s.push(birthToNum);break;
+                    case '4' : four_s.push(birthToNum);break;
+                    case '5' : fi_s.push(birthToNum);break;
+                    }
+            }
+            if(v.division == 'WEB'){
+                //这里进行年龄判断操作
+                    var birth=v.birthday;
+                    var birthToNum=jsGetAge(birth);
+
+                    var str = birthToNum.toString().substring(0,1);
+                    switch(str){
+                    case '2' : two_w.push(birthToNum);break;
+                    case '3' : three_w.push(birthToNum);break;
+                    case '4' : four_w.push(birthToNum);break;
+                    case '5' : fi_w.push(birthToNum);break;
+                    }
+            }
         });
+
 
         console.log(two_i.length);
         console.log(three_i.length);
         console.log(four_i.length);
         console.log(fi_i.length);
         
-        /*
-        var two_s = [];
-        var three_s = [];
-        var four_s = [];
-        var fi_s = [];
 
+        console.log(two_s.length);
+        console.log(three_s.length);
+        console.log(four_s.length);
+        console.log(fi_s.length);
+        
 
-        if(data.division == 'SMT'){
-    
-            for(var i=0;i<arr_s.length;i++){
-                var birth=data[i].birthday;
-                var birthToNum=jsGetAge(birth);
-                var str = birthToNum.toString().substring(0,1);
-                switch(str){
-                    case '2' : two_s.push(birthToNum);break;
-                    case '3' : three_s.push(birthToNum);break;
-                    case '4' : four_s.push(birthToNum);break;
-                    case '5' : fi_s.push(birthToNum);break;
-                }
-            }
-        }
-            console.log(two_s.length);
-            console.log(three_s.length);
-            console.log(four_s.length);
-            console.log(fi_s.length);
-        
-        var two_s = [];
-        var three_s = [];
-        var four_s = [];
-        var fi_s = [];
-    
-        if($.grep(data, data.division == 'SMT')){
-    
-            for(var i=0;i<data.length;i++){
-                var birth=data[i].birthday;
-                var birthToNum=jsGetAge(birth);
-                var str = birthToNum.toString().substring(0,1);
-                switch(str){
-                    case '2' : two_s.push(birthToNum);break;
-                    case '3' : three_s.push(birthToNum);break;
-                    case '4' : four_s.push(birthToNum);break;
-                    case '5' : fi_s.push(birthToNum);break;
-                }
-            }
-        }
-            console.log(two_s.length);
-            console.log(three_s.length);
-            console.log(four_s.length);
-            console.log(fi_s.length);
-
-        var two_w = [];
-        var three_w = [];
-        var four_w = [];
-        var fi_w = [];
-        
-        if($.grep(data, data.division == 'WEB')){
-        
-            for(var i=0;i<data.length;i++){
-                var birth=data[i].birthday;
-                var birthToNum=jsGetAge(birth);
-                var str = birthToNum.toString().substring(0,1);
-                switch(str){
-                    case '2' : two_w.push(birthToNum);break;
-                    case '3' : three_w.push(birthToNum);break;
-                    case '4' : four_w.push(birthToNum);break;
-                    case '5' : fi_w.push(birthToNum);break;
-                }
-            }
-        }
-                console.log(two_w.length);
-                console.log(three_w.length);
-                console.log(four_w.length);
-                console.log(fi_w.length);
+        console.log(two_w.length);
+        console.log(three_w.length);
+        console.log(four_w.length);
+        console.log(fi_w.length);
             
-        */
+        
 
 
     });
