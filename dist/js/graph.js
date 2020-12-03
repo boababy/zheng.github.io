@@ -230,8 +230,8 @@ $(document).ready(function(){
         $.each(data,function(k,v){
             if(v.division == 'ITI'){
                 //这里进行年龄判断操作
-                for(var i=0;i<arr_i.length;i++){
-                    var birth=arr_i[i].birthday;
+                for(var i=0;i<data.length;i++){
+                    var birth=data[i].birthday;
                     var birthToNum=jsGetAge(birth);
                     var str = birthToNum.toString().substring(0,1);
                     switch(str){
