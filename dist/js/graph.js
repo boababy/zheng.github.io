@@ -40,7 +40,6 @@ $(document).ready(function(){
     });
 });
 
-
 //役職者の割合
 $(document).ready(function(){
     $.getJSON("dist/js/include.json", function (data) {
@@ -201,7 +200,7 @@ $(document).ready(function(){
           labels: ['20代', '30代', '40代', '50代'],
           datasets: [
             {
-              
+              label: '人数',
               data: [two.length,three.length,four.length,fi.length],
               backgroundColor: "rgba(219,39,91,0.5)"
             }]
@@ -225,8 +224,42 @@ $(document).ready(function(){
     });
 });
 
+//部署ごとの年代別
+$(document).ready(function(){
+    $.getJSON("dist/js/include.json", function (data) {
 
-//計算年龄
+            var two = [];
+            var three = [];
+            var four = [];
+            var fi = [];
+
+        if($.grep(data, data.division == 'ITI')){
+
+            for(var i=0;i<data.length;i++){
+                var birth=data[i].birthday;
+                var birthToNum=jsGetAge(birth);
+                var str = birthToNum.toString().substring(0,1);
+                switch(str){
+                case '2' : two.push(birthToNum);break;
+                case '3' : three.push(birthToNum);break;
+                case '4' : four.push(birthToNum);break;
+                case '5' : fi.push(birthToNum);break;
+                }
+            }
+        }
+            console.log(two.length);
+            console.log(three.length);
+            console.log(four.length);
+            console.log(fi.length);
+            
+            
+
+            
+    });
+});
+
+
+//年龄計算
 function jsGetAge(strBirthday){       
     var returnAge;
     var strBirthdayArr=strBirthday.split("/");
