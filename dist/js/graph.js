@@ -329,7 +329,7 @@ $(document).ready(function(){
            scales: {
              yAxes: [{
                ticks: {
-                 suggestedMax: 6,
+                 suggestedMax: 5,
                  suggestedMin: 0,
                  stepSize: 1,
                }
